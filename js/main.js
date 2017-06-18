@@ -20,6 +20,8 @@
 (function () {
   'use strict';
 
+
+
   var myHeaders = {
     Authorization: 'token ' + TOKEN
   };
@@ -27,13 +29,9 @@
   // urls
   var userInput = '';
   var searchUrl = 'http://api.soundcloud.com/tracks/?client_id=' + TOKEN + '&q=';
-  // var searchUrl = 'http://api.soundcloud.com/tracks/?client_id=' + TOKEN+'&q='+userInput;
-
   // get-elements
   var searchForm = document.getElementById('search-form');
-
   // onSubmit
-
   searchForm.addEventListener('submit', function (e) {
     e.preventDefault();
     userInput = document.getElementById('submit').value;
@@ -52,13 +50,16 @@
               // set attributes
               trackCont.setAttribute('class', 'track-box');
               imgBox.setAttribute('class', 'image-box');
+              imgBox.addEventListener('click', function () {
+                fetchStream(imgBox.dataset.stream);
+              });
+              imgBox.dataset.stream = item.stream_url;
               imgBox.innerHTML = img;
               trackName.textContent = item.title;
               //append child
               searchForm.appendChild(trackCont);
               trackCont.appendChild(imgBox);
               trackCont.appendChild(trackName);
-              //fetch stream_url
               if (item.artwork_url !== null) {
                 img = '<img src="' + item.artwork_url + '">';
               }
@@ -66,13 +67,10 @@
         });
     });
   });
-
-  fetch('https://api.soundcloud.com/tracks/306427043/stream?client_id=' + TOKEN).then(function (result) {
-    // result.json().then(function (data2) {
-      console.log(result);
-    // });
-  });
-
-
-
+  function fetchStream(url) {
+    fetch(url + '?client_id=' + TOKEN).then(function (result) {
+        var musicPlayer = document.getElementById('music-player');
+        musicPlayer.src = result.url;
+    });
+  }
 }());
