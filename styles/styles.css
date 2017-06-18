@@ -1,3 +1,67 @@
+/*box-sizing set to border-box in normalize.css*/
+
 body {
-  background-color: #60d9f1;
+  background-color: #000;
+  background-image: url("http://www.wallpapersbrowse.com/images/9k/9kbluex.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+#submit {
+  width: 80%;
+  height: 30px;
+  flex: 1 1 100;
+  margin: 0 auto;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.player {
+  text-align: center;
+}
+
+.music-player {
+  width: 80%;
+}
+/*track display*/
+
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.track-box {
+  flex: 1 1 25;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  padding-top: 20px;
+  text-align: center;
+  min-width: 200px;
+  width: 20%;
+
+}
+
+.image-box {
+  display: inline-block;
+  height: 80%;
+  width: 80%;
+  min-height: 150px;
+  min-width: 100px;
+  max-height: 150px;;
+  max-width: 150px;;
+  background-color: black;
+  margin: 0 auto;
+}
+
+img {
+  height: 150px;
+  width: 150px;
 }
