@@ -3,21 +3,21 @@
 (function () {
   'use strict';
 
-  var myHeaders = {
-    Authorization: 'token ' + TOKEN
-  };
+  // var myHeaders = {
+  //   Authorization: 'token ' + TOKEN
+  // };
 
-  try {
-    myHeaders['Authorization'] = 'token ' + TOKEN;
-  } catch (e) {
-    //ignore error
-  }
+  // try {
+  //   myHeaders['Authorization'] = 'token ' + TOKEN;
+  // } catch (e) {
+  //   //ignore error
+  // }
 
 
   var img = '<img src="https://s-media-cache-ak0.pinimg.com/originals/68/f2/9a/68f29a5da65ace8159029d7473594b14.jpg">';
   // urls
   var userInput = '';
-  var searchUrl = 'http://api.soundcloud.com/tracks/?client_id=' + TOKEN + '&q=';
+  var searchUrl = 'https://api.soundcloud.com/tracks/?client_id=' + TOKEN + '&q=';
   // get-elements
   var searchForm = document.getElementById('search-form');
   var searchResults = document.getElementById('search-results');
