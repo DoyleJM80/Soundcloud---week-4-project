@@ -3,7 +3,7 @@
 (function () {
   'use strict';
   const TOKEN = '095fe1dcd09eb3d0e1d3d89c76f5618f';
-  
+
 
 
   var img = '<img src="https://s-media-cache-ak0.pinimg.com/originals/68/f2/9a/68f29a5da65ace8159029d7473594b14.jpg">';
@@ -45,14 +45,18 @@
               searchResults.prepend(trackCont);
               trackCont.appendChild(imgBox);
               trackCont.appendChild(trackName);
+
           });
         });
     });
+      searchUrl = 'https://api.soundcloud.com/tracks/?client_id=' + TOKEN + '&q=';
+      console.log(searchUrl);
   });
   function fetchStream(url) {
     fetch(url + '?client_id=' + TOKEN).then(function (result) {
       var musicPlayer = document.getElementById('music-player');
       musicPlayer.src = result.url;
+      musicPlayer.play();
     });
   }
 }());
