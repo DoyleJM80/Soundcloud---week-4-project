@@ -22,12 +22,12 @@ body {
   width: 92.5%;
   height: 30px;
   margin: 0 auto;
-  /*background-color: rgb(200, 200, 200);*/
+  color: #000;
 }
 
 #submit-button {
   height: 30px;
-
+  color: #000;
 }
 
 .container {
