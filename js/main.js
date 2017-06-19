@@ -25,12 +25,14 @@
   var myHeaders = {
     Authorization: 'token ' + TOKEN
   };
-
+  var img = '<img src="https://s-media-cache-ak0.pinimg.com/originals/68/f2/9a/68f29a5da65ace8159029d7473594b14.jpg">';
   // urls
   var userInput = '';
   var searchUrl = 'http://api.soundcloud.com/tracks/?client_id=' + TOKEN + '&q=';
   // get-elements
   var searchForm = document.getElementById('search-form');
+  var searchResults = document.getElementById('search-results');
+  var newImg = 'bob';
   // onSubmit
   searchForm.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -44,33 +46,35 @@
             // console.log(item.stream_url);
               var trackCont = document.createElement('div');
               var imgBox = document.createElement('div');
-              var artistName = document.createElement('span');
               var trackName = document.createElement('span');
-              var img = '<img src="https://s-media-cache-ak0.pinimg.com/originals/68/f2/9a/68f29a5da65ace8159029d7473594b14.jpg">';
               // set attributes
               trackCont.setAttribute('class', 'track-box');
               imgBox.setAttribute('class', 'image-box');
+              imgBox.setAttribute('id', 'image-box');
+              imgBox.innerHTML = img;
               imgBox.addEventListener('click', function () {
                 fetchStream(imgBox.dataset.stream);
               });
               imgBox.dataset.stream = item.stream_url;
-              imgBox.innerHTML = img;
+              imgBox.dataset.art = item.artwork_url;
               trackName.textContent = item.title;
               //append child
-              searchForm.appendChild(trackCont);
+              searchResults.appendChild(trackCont);
               trackCont.appendChild(imgBox);
               trackCont.appendChild(trackName);
-              if (item.artwork_url !== null) {
-                img = '<img src="' + item.artwork_url + '">';
-              }
           });
         });
+        // .then(fetch(item.artwork_url + '?client_id=' + TOKEN).then(function (result2) {
+        //   var imgArt = document.getElementById('image-box');
+        //   newImg = result2.url;
+        //   imgArt.src = newImg;
+        // }));
     });
   });
   function fetchStream(url) {
     fetch(url + '?client_id=' + TOKEN).then(function (result) {
-        var musicPlayer = document.getElementById('music-player');
-        musicPlayer.src = result.url;
+      var musicPlayer = document.getElementById('music-player');
+      musicPlayer.src = result.url;
     });
   }
 }());
