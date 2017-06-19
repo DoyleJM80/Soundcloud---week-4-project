@@ -3,15 +3,15 @@
 (function () {
   'use strict';
 
-  // var myHeaders = {
-  //   Authorization: 'token ' + TOKEN
-  // };
+  var myHeaders = {
+    Authorization: 'token ' + TOKEN
+  };
 
-  // try {
-  //   myHeaders['Authorization'] = 'token ' + TOKEN;
-  // } catch (e) {
-  //   //ignore error
-  // }
+  try {
+    myHeaders['Authorization'] = 'token ' + TOKEN;
+  } catch (e) {
+    //ignore error
+  }
 
 
   var img = '<img src="https://s-media-cache-ak0.pinimg.com/originals/68/f2/9a/68f29a5da65ace8159029d7473594b14.jpg">';
