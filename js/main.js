@@ -2,16 +2,8 @@
 
 (function () {
   'use strict';
-
-  var myHeaders = {
-    Authorization: 'token ' + TOKEN
-  };
-
-  try {
-    myHeaders['Authorization'] = 'token ' + TOKEN;
-  } catch (e) {
-    //ignore error
-  }
+  const TOKEN = '095fe1dcd09eb3d0e1d3d89c76f5618f';
+  
 
 
   var img = '<img src="https://s-media-cache-ak0.pinimg.com/originals/68/f2/9a/68f29a5da65ace8159029d7473594b14.jpg">';
