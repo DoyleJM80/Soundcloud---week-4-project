@@ -50,7 +50,7 @@
               // set attributes
               trackCont.setAttribute('class', 'track-box');
               imgBox.setAttribute('class', 'image-box');
-              imgBox.setAttribute('id', 'image-box');
+              trackName.setAttribute('class', 'track-name');
               imgBox.innerHTML = img;
               imgBox.addEventListener('click', function () {
                 fetchStream(imgBox.dataset.stream);
@@ -59,7 +59,7 @@
               imgBox.dataset.art = item.artwork_url;
               trackName.textContent = item.title;
               //append child
-              searchResults.appendChild(trackCont);
+              searchResults.prepend(trackCont);
               trackCont.appendChild(imgBox);
               trackCont.appendChild(trackName);
           });
